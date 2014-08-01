@@ -80,4 +80,25 @@ This is a handy mode for your local VMs or Raspberry Pis that are'nt always on :
 
 The agent logs all its activities to syslog (`INFO`) as `PubKeysAgent`.
 
+##Agent config##
+
+Both `pkagent.rb` and `pkagent-standalone.rb` expect a YAML config `pubkeyagent.yml` to be present in `/opt/pkagent` (Or whichever path you cloned into).
+
+A sample config `pubkeyagent-sample.yml` is provided.
+```
+---
+usertoken: <usertoken>
+apikey: <apitoken>
+user_blacklist:
+- root
+user_whitelist:
+apihost: https://api.pubkey.in
+purge_other_keys: false
+
+```
+
+The only two parameters that are required as `usertoken` and `apikey`. These can be obtained from the Console from the Team admin page (Teams -> Manage AuthKeys).
+
+See [Agent docs](http://docs.pubkey.in/agentsetup) for details on the config parameters.
+
 
