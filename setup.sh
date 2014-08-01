@@ -28,7 +28,7 @@ setupmode=0
 
 until [ "x$setupmode" == "x1" ] || [ "x$setupmode" == "x2" ];
 do
-  read -p "How would you like to run the Public Key agent? Options => 1:Init, 2:Upstart (Enter 1/2):" -n 1 setupmode
+  read -p "How would you like to run the Public Key agent? Options => 1:Sysv/Init.d, 2:Upstart (Enter 1/2):" -n 1 setupmode
   echo
 done
 

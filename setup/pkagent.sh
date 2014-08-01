@@ -1,4 +1,4 @@
-#! /bin/sh
+# /bin/bash
 ### BEGIN INIT INFO
 # Provides:          pkagent
 # Required-Start:    $remote_fs $network $syslog
@@ -15,18 +15,20 @@
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
 PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
 DESC="PubKey Agent"
-PKAGENTPATH="/opt/pkagent"
 NAME=pkagent
-DAEMON=$PKAGENTPATH/pkagent.rb
 DAEMON_ARGS="--options args"
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
 BUNDLER=`which bundle`
-# Exit if the package is not installed
-[ -x "$DAEMON" ] || exit 0
-
 # Read configuration variable file if it is present
 [ -r /etc/default/$NAME ] && . /etc/default/$NAME
+if [ "x$PKAGENTPATH" == "x" ] 
+then
+  PKAGENTPATH="/opt/pkagent"
+fi
+# Exit if the package is not installed
+DAEMON=$PKAGENTPATH/pkagent.rb
+[ -x "$DAEMON" ] || exit 0
 
 # Load the VERBOSE setting and other rcS variables
 . /lib/init/vars.sh
