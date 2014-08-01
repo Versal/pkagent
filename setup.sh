@@ -16,4 +16,10 @@ if [ "x$($RUBY -v 2>/dev/null)" == "x" ] || [ "x$($GEM -v 2>/dev/null)" == "x" ]
   exit 1
 fi
 
-
+RV=`ruby -e "puts RUBY_VERSION"`
+echo $RV | grep -q 1.9
+if [ $? -eq 1 ]; then
+  echo "Needs Ruby 1.9.x but you have $RV"
+  exit 1
+fi
+echo "Ok so far..."
