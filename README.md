@@ -32,12 +32,11 @@ gem install bundler --no-rdoc --no-ri
 
 ##Clone the PubKey agent repo##
 
-This doc and the rest of script assume we install to '/opt'.
+This doc and all the setup scripts assume we install to '/opt/pkagent'.
 
 ```
 
-cd /opt 
-git clone git@github.com:onepowerltd/pkagent.git
+cd /opt && git clone git@github.com:onepowerltd/pkagent.git
 
 ```
 
@@ -67,6 +66,8 @@ This would use `pkagent.rb` - This is a daemon (kind) of process which is always
 It wakes up every 30 minutes to poll PubKey API. You can also `touch /etc/pubkey.update` anytime to force an update.
 
 *This is the preferred run mode and is what gets setup with an `init.d` or `upstart` job for PubKey agent.*
+
+Run `./setup.sh` from `/opt/pkagent` to set this up.
 
 ###Standalone mode###
 

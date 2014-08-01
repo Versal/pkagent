@@ -23,3 +23,34 @@ if [ $? -eq 1 ]; then
   exit 1
 fi
 echo "Ok so far..."
+
+setupmode=0
+
+until [ "x$setupmode" == "x1" ] || [ "x$setupmode" == "x2" ];
+do
+  read -p "How would you like to run the Public Key agent? Options => 1:Init, 2:Upstart (Enter 1/2):" -n 1 setupmode
+  echo
+done
+
+case $setupmode in
+  1)
+  echo "Setting up PubKey agent as an init.d service"
+  cp ./setup/pkagent.sh /etc/init.d/pkagent && chmod 555 /etc/init.d/pkagent && update-rc.d pkagent defaults 1>/dev/null && update-rc.d pkagent enable 1>/dev/null
+  rm -f /etc/init/pkagent.conf
+  ;;
+  2)
+  echo "Setting up PubKey agent as an Upstart managed service"
+  if [ -f /etc/init.d/pkagent ]; then
+   update-rc.d pkagent disable 2>&1 1>/dev/null
+   update-rc.d pkagent remove 2>&1 1>/dev/null
+   rm -f /etc/init.d/pkagent
+  fi
+  cp ./setup/pkagent.upstart.conf /etc/init/pkagent.conf && chmod 444 /etc/init/pkagent.conf
+  ;;
+  *)
+  echo "Invalid option"
+  exit 1
+esac
+
+echo "Setup up pubkeyagent.yml config (See http://docs.pubkey.in/agentsetup) and start the agent as 'service pkagent start'"
+
