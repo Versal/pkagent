@@ -30,23 +30,16 @@ gem install bundler --no-rdoc --no-ri
 
 *Note*: PubKey agent has not been tested with Jruby / RVM - However if you do have those, theres nothing preventing the agent from being run via them.
 
-##Clone the PubKey agent repo##
+##Clone the PubKey agent repo & install required gems##
 
 This doc and all the setup scripts assume we install to `/opt/pkagent`.
 
 ```
 
 cd /opt && git clone git@github.com:onepowerltd/pkagent.git
+cd /opt/pkagent && bundle install
 
 ```
-
-
-##Install the Ruby gems needed##
-
-PubKey bundles all the gems it needs via bundler into `./vendor`. 
-
-So you can safely run it via `bundle exec` without having to install gems global to your machine.
-
 
 ##Setup PubKey as a system service ##
 
