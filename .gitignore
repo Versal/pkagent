@@ -1,0 +1,6 @@
+*.swp
+pubkeyagent.yml*
+log/*
+cfgmaker.rb
+test.rb
+stash.out

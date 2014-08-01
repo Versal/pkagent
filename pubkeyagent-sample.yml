@@ -1,0 +1,8 @@
+---
+usertoken: <usertoken>
+apikey: <apitoken>
+user_blacklist:
+- root
+user_whitelist:
+apihost: https://api.pubkey.in
+purge_other_keys: false
