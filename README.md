@@ -32,7 +32,7 @@ gem install bundler --no-rdoc --no-ri
 
 ##Clone the PubKey agent repo##
 
-I am picking `/opt` for the install folder, feel free to use any other as you deem fit.
+This doc and the rest of script assume we install to '/opt'.
 
 ```
 
@@ -75,6 +75,8 @@ You could also run `cd /opt/pkagent && bundle exec ./pkagent-standalone.rb` via 
 
 This is a handy mode for your local VMs or Raspberry Pis that are'nt always on :-)
 
+##Agent Logging##
 
+The agent logs all its activities to syslog (`INFO`) as `PubKeysAgent`.
 
 
