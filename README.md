@@ -32,7 +32,7 @@ gem install bundler --no-rdoc --no-ri
 
 ##Clone the PubKey agent repo##
 
-This doc and all the setup scripts assume we install to '/opt/pkagent'.
+This doc and all the setup scripts assume we install to `/opt/pkagent`.
 
 ```
 
