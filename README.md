@@ -63,17 +63,17 @@ The advantages to an upstart job is that it can be automatically be respawned if
 
 ###Preferred - As a daemon###
 
-This would use `pkagent.rb` - This is a daemon (kind) of process which is always running. It connects to the PubKey messaging system and can be trigged to perform agent runs based on your triggering it from the [PubKey Console](https://www.pubkey.in/console/). It also reports check-in status back to the console so you can list which systems updated. The daemon is quite lightweight and sleeps for most of the time until a user change happens or you trigger it to run.
+This would use `pkagent.rb` - This is a daemon (kind) of process which is always running. It connects to the PubKey messaging system and can be triggered to perform agent runs based on your notifying it from the [PubKey Console](https://www.pubkey.in/console/). It also reports check-in status back to the console so you can list which systems updated. The daemon is quite lightweight and sleeps for most of the time until a user change happens or you trigger it to run.
 It wakes up every 30 minutes to poll PubKey API. You can also `touch /etc/pubkey.update` anytime to force an update.
 
-This is the *preferred* run mode and is what gets setup when you setup a `init.d` or `upstart` job for PubKey agent.
+*This is the preferred run mode and is what gets setup with an `init.d` or `upstart` job for PubKey agent.*
+
 ###Standalone mode###
 
 You could also run `cd /opt/pkagent && bundle exec ./pkagent-standalone.rb` via a cron job. You want to set this to run every 10 minutes or higher.
 (Running the agent more often that this via cron/any-other-mechanism is to be avoided).
 
-
-
+This is a handy mode for your local VMs or Raspberry Pis that are'nt always on :-)
 
 
 
