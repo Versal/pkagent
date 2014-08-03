@@ -92,6 +92,6 @@ purge_other_keys: false
 
 The only two parameters that are required as `usertoken` and `apikey`. These can be obtained from the Console from the Team admin page (Teams -> Manage AuthKeys).
 
-See [Agent docs](http://docs.pubkey.in/agentsetup) for details on the config parameters.
+See [Agent docs](http://docs.pubkey.in/pubkey-agent-setup/) for details on the config parameters.
 
 
